@@ -1,17 +1,64 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+
+const header = ref('My Wishlist')
+const editing = ref(false);
+const items = ref([
+  // {id: 1, label: "A cute Hello Kitty top"},
+  // {id: 2, label: "Prada Loafers size 36"},
+  // {id: 3, label: "Fenty lipgloss"}
+])
+
+const newItem = ref("")
+const newItemHighPriority = ref(false)
+const saveItem = () => {
+  items.value.push({id: items.value.length + 1, label: newItem.value})
+  newItem.value = ""
+}
+const doEdit = (e) => {
+  editing.value= e
+  newItem.value = ""
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="header">
+    <h1>{{ header }}</h1>
+    <button v-if="editing" class="btn" @click="doEdit(false)">
+      Cancel
+    </button>
+    <button v-else class="btn btn-primary" @click="doEdit(true)">
+      Add Item
+    </button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+      <form
+        class="add-item-form"
+        v-if="editing"
+        @submit.prevent="saveItem"
+      >
+        <input
+        v-model.trim="newItem"
+        type="text"
+        placeholder="Add to wishlist babe"
+        >
+        <label>
+          <input type="checkbox" v-model="newItemHighPriority">
+          Prio
+        </label>
+        <button
+          class="btn btn-primary"
+        >
+        Save Item
+        </button>
+      </form>
+      <ul>
+        <li v-for="({id, label}, i) in items" :key="id">
+        {{ label }}
+        </li>
+      </ul>
+      <p v-if="!items.length">
+      Nothing here yet boo ... 
+      </p>
 </template>
 
 <style scoped>
