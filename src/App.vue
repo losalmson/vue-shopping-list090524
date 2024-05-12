@@ -2,35 +2,41 @@
 import { ref } from 'vue'
 
 const header = ref('My Wishlist')
-const editing = ref(false);
-const items = ref([
-  // {id: 1, label: "A cute Hello Kitty top"},
-  // {id: 2, label: "Prada Loafers size 36"},
-  // {id: 3, label: "Fenty lipgloss"}
-])
+const newItem = ref("");
 
-const newItem = ref("")
-const newItemHighPriority = ref(false)
-const saveItem = () => {
-  items.value.push({id: items.value.length + 1, label: newItem.value})
-  newItem.value = ""
-}
-const doEdit = (e) => {
-  editing.value= e
-  newItem.value = ""
-}
+const handleSubmit = () => {}; 
+// const editing = ref(false);
+// const items = ref([
+//   // {id: 1, label: "A cute Hello Kitty top"},
+//   // {id: 2, label: "Prada Loafers size 36"},
+//   // {id: 3, label: "Fenty lipgloss"}
+// ])
+
+// const newItem = ref("")
+// const newItemHighPriority = ref(false)
+// const saveItem = () => {
+//   items.value.push({id: items.value.length + 1, label: newItem.value})
+//   newItem.value = ""
+// }
+// const doEdit = (e) => {
+//   editing.value= e
+//   newItem.value = ""
+// }
 </script>
 
 <template>
-  <div class="header">
     <h1>{{ header }}</h1>
-    <button v-if="editing" class="btn" @click="doEdit(false)">
+
+    <form @submit.prevent="handleSubmit">
+      <input type="text" value="Gucci FlipFlops" />
+      <button>Add Item</button>
+    </form>
+    <!-- <button v-if="editing" class="btn" @click="doEdit(false)">
       Cancel
     </button>
     <button v-else class="btn btn-primary" @click="doEdit(true)">
       Add Item
     </button>
-  </div>
       <form
         class="add-item-form"
         v-if="editing"
@@ -58,7 +64,7 @@ const doEdit = (e) => {
       </ul>
       <p v-if="!items.length">
       Nothing here yet boo ... 
-      </p>
+      </p> -->
 </template>
 
 <style scoped>
