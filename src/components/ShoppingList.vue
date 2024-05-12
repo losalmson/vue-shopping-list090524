@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { Item } from '../models/Item';
 
-const items = ref<Item[]>([new Item("Test")]);
+const items = ref<Item[]>([]);
 const newItem = ref("");
 
 const handleSubmit = () => {
@@ -22,6 +22,7 @@ const handleSubmit = () => {
     <ul>
         <li v-for="item in items" :key="item.id">{{ item.text }}</li>
     </ul>
+    <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>
 
 <style scope>
