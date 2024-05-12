@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { Item } from '../models/Item';
 
-const items = ref<Item[]>([]);
+const items = ref<Item[]>([new Item("Test")]);
 const newItem = ref("");
 
 const handleSubmit = () => {
@@ -28,7 +28,7 @@ const removeItem = (i: number) => {
     </form>
 
     <ul>
-        <li v-for="item in items" :key="item.id">{{ item.text }}</li>
+        <ItemPresentation v-for="item in items" :key="item.id" />
     </ul>
     <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>
