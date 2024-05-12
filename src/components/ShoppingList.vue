@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { Item } from '../models/Item';
 
-const items = 
+const items = ref<Item[]>([]);
 </script>
 
 <template>
