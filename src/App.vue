@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import ShoppingList from './components/ShoppingList.vue';
 
 const newItem = ref("");
 
@@ -18,6 +19,8 @@ const handleSubmit = () => {
       <button>Add Item</button>
     </form>
     <p>{{ newItem }}</p>
+
+    <ShoppingList />
 </template>
 
 <style scoped>
