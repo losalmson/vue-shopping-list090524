@@ -11,6 +11,14 @@ const handleSubmit = () => {
     newItem.value="";
 };
 
+const toggleItem = (i: number) => {
+    items.value[i].done = !items.value[i].done;
+};
+
+const removeItem = (i: number) => {
+    items.value.splice(i, 1);
+};
+
 </script>
 
 <template>
