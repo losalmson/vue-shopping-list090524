@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const newItem = ref("Hej");
+const newItem = ref("");
 
-const handleSubmit = () => {}; 
+const handleSubmit = () => {
+  console.log("Submitting:", newItem.value);
+}; 
 
-const handleInput = (e) => {
-  newItem.value = e.target.value;
-};
+// const handleInput = (e) => {
+//   newItem.value = e.target.value;
+// };
 </script>
 
 <template>
     <form @submit.prevent="handleSubmit">
-      <input type="text" placeholder="add grail 2 list" :value="newItem" @input="handleInput" />
+      <input type="text" v-model.trim="newItem" placeholder="add grail 2 list" />
       <button>Add Item</button>
     </form>
     <p>{{ newItem }}</p>
