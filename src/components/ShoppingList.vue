@@ -7,6 +7,8 @@ const newItem = ref("");
 
 const handleSubmit = () => {
     items.value.push(new Item(newItem.value));
+
+    newItem.value="";
 };
 
 </script>
