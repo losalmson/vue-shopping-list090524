@@ -2,11 +2,11 @@
 import { ref } from 'vue';
 import ShoppingList from './components/ShoppingList.vue';
 
-const newItem = ref("");
+// const newItem = ref("");
 
-const handleSubmit = () => {
-  console.log("Submitting:", newItem.value);
-}; 
+// const handleSubmit = () => {
+//   console.log("Submitting:", newItem.value);
+// }; 
 
 // const handleInput = (e) => {
 //   newItem.value = e.target.value;
@@ -14,11 +14,11 @@ const handleSubmit = () => {
 </script>
 
 <template>
-    <form @submit.prevent="handleSubmit">
+    <!-- <form @submit.prevent="handleSubmit">
       <input type="text" v-model.trim="newItem" placeholder="add grail 2 list" />
       <button>Add Item</button>
     </form>
-    <p>{{ newItem }}</p>
+    <p>{{ newItem }}</p> -->
 
     <ShoppingList />
 </template>
