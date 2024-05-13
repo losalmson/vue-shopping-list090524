@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Item } from '../models/Item';
 import {ref} from 'vue';
 
 const newItem = ref("");
