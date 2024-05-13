@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { Item } from '../models/Item';
 
+
 const items = ref<Item[]>([new Item("Test")]);
 const newItem = ref("");
 
@@ -11,11 +12,11 @@ const handleSubmit = () => {
     newItem.value="";
 };
 
-const toggleItem = (i: number) => {
+const handleToggle = (i: number) => {
     items.value[i].done = !items.value[i].done;
 };
 
-const removeItem = (i: number) => {
+const handleRemove = (i: number) => {
     items.value.splice(i, 1);
 };
 
@@ -28,7 +29,10 @@ const removeItem = (i: number) => {
     </form>
 
     <ul>
-        <ItemPresentation v-for="item in items" :key="item.id" />
+        <ItemPresentation v-for="(item, i) in items" 
+        :key="item.id" 
+        :item="item" 
+        :i="i"/>
     </ul>
     <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>

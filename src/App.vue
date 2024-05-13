@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import ShoppingList from './components/ShoppingList.vue';
 
+
 // const newItem = ref("");
 
 // const handleSubmit = () => {
