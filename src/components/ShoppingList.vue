@@ -2,17 +2,14 @@
 import { ref } from 'vue';
 import ItemPresentation from './ItemPresentation.vue';
 import { Item } from '../models/Item';
+import AddItem from './AddItem';
 
 
 const items = ref<Item[]>([]);
-const newItem = ref("");
 
-const handleSubmit = () => {
-    items.value.push(new Item(newItem.value));
-
-    newItem.value="";
-};
-
+const addItem = (text: string) => {
+    items.value.push(new Item(text));
+}
 const handleToggle = (i: number) => {
     items.value[i].done = !items.value[i].done;
 };
@@ -24,11 +21,11 @@ const handleRemove = (i: number) => {
 </script>
 
 <template>
-    <form @submit.prevent="handleSubmit">
+    <!-- <form @submit.prevent="handleSubmit">
         <input type="text" v-model.trim="newItem" placeholder="add grail 2 list"/>
         <button>Add Item</button>
-    </form>
-
+    </form> -->
+    <AddItem />
     <ul>
         <!-- item i (item,i) rep. en film  -->
         <ItemPresentation 
