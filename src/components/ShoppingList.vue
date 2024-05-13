@@ -39,6 +39,5 @@ const handleRemove = (i: number) => {
     </ul>
     <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>
-
 <style scope>
 </style>
