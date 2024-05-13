@@ -35,7 +35,7 @@ const handleRemove = (i: number) => {
         @toggle="handleToggle" 
         @remove="handleRemove"/>
     </ul>
-    <p v-if="!items.length">Nothing to see here boo ...</p>
+    <p v-if="!items.length">Nothing to see here ...</p>
 </template>
 <style scope>
 </style>

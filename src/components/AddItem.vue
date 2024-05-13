@@ -3,14 +3,21 @@
 import {ref} from 'vue';
 
 const newItem = ref("");
+const error = ref("");
 
 const emit = defineEmits<{
     (e: "add", text: string): void;
 }>();
 
 const handleSubmit = () => {
-    emit("add", newItem.value);
+   if (newItem.value !== "") {
+   emit("add", newItem.value);
     newItem.value = "";
+    error.value = ""; 
+    } else 
+    {
+     error.value="This field can't be empty";
+    }
 };
 
 </script>
@@ -21,6 +28,7 @@ const handleSubmit = () => {
         <button>Cancel</button>
         <button class="btn-add">Add Item</button>
     </form>
+    <p v-if="error !== ''">{{ error }}</p>
 </template>
 
 <style scoped>
