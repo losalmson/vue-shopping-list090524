@@ -4,7 +4,7 @@ import { Item } from '../models/Item';
 import ItemPresentation from './ItemPresentation.vue';
 import AddItem from './AddItem.vue';
 
-const items = ref<Item[]>([new Item ("Test")]);
+const items = ref<Item[]>([]);
 
 const addItem = (text: string) => {
     items.value.push(new Item(text));

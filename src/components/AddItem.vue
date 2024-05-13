@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import {ref} from 'vue';
 
 const newItem = ref("");
@@ -17,9 +18,14 @@ const handleSubmit = () => {
 <template>
     <form @submit.prevent="handleSubmit">
         <input type="text" v-model.trim="newItem" placeholder="add grail 2 list"/>
-        <button>Add Item</button>
+        <button>Cancel</button>
+        <button class="btn-add">Add Item</button>
     </form>
 </template>
 
 <style scoped>
+
+.btn-add {
+    background-color: rgb(124, 169, 236);
+}
 </style>

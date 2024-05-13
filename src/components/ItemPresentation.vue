@@ -35,4 +35,7 @@ interface ItemPresentationProps {
 </template>
 
 <style scoped>
+li.done{
+    text-decoration: line-through;
+}
 </style>

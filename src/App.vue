@@ -1,8 +1,8 @@
 <script setup lang="ts">
-// import { ref } from 'vue';
+import { ref } from 'vue';
 import ShoppingList from './components/ShoppingList.vue';
 
-
+const header = ref("My Wishlist");
 // const newItem = ref("");
 
 // const handleSubmit = () => {
@@ -15,6 +15,7 @@ import ShoppingList from './components/ShoppingList.vue';
 </script>
 
 <template>
+  <h1> {{ header }}</h1>
     <!-- <form @submit.prevent="handleSubmit">
       <input type="text" v-model.trim="newItem" placeholder="add grail 2 list" />
       <button>Add Item</button>
