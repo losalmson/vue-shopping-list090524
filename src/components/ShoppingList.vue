@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import ItemPresentation from './ItemPresentation.vue';
 import { Item } from '../models/Item';
 
 
-const items = ref<Item[]>([new Item("Test")]);
+const items = ref<Item[]>([]);
 const newItem = ref("");
 
 const handleSubmit = () => {
@@ -29,10 +30,12 @@ const handleRemove = (i: number) => {
     </form>
 
     <ul>
-        <ItemPresentation v-for="(item, i) in items" 
+        <!-- item i (item,i) rep. en film  -->
+        <ItemPresentation 
+        v-for="(item, i) in items"  
         :key="item.id" 
         :item="item" 
-        :i="i"/>
+        :i="i" @toggle="handleToggle"/>
     </ul>
     <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>

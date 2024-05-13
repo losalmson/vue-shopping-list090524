@@ -1,14 +1,24 @@
+
 <script setup lang="ts">
+import { Item } from '../models/Item';
 
 interface ItemPresentationProps {
     item: Item;
     i: number;
 }
     defineProps<ItemPresentationProps>();
+    
+    const emit = defineEmits<{
+        (e: "toggle", i:number):void;
+    }>();
 
-   const handleToggle = (i: number) => {};
+   const handleToggle = (i: number) => {
+    emit("toggle", i);
+   };
    
-   const handleRemove = (i: number) => {};
+   const handleRemove = (i: number) => {
+    const emit = defineEmits();
+   };
 </script>
 
 <template>
