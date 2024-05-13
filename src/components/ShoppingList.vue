@@ -35,7 +35,7 @@ const handleRemove = (i: number) => {
         v-for="(item, i) in items"  
         :key="item.id" 
         :item="item" 
-        :i="i" @toggle="handleToggle"/>
+        :i="i" @toggle="handleToggle" @remove="handleRemove"/>
     </ul>
     <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>

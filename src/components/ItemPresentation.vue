@@ -10,6 +10,7 @@ interface ItemPresentationProps {
     
     const emit = defineEmits<{
         (e: "toggle", i:number):void;
+        (e: "remove", i:number):void
     }>();
 
    const handleToggle = (i: number) => {
@@ -17,7 +18,7 @@ interface ItemPresentationProps {
    };
    
    const handleRemove = (i: number) => {
-    const emit = defineEmits();
+    emit("remove", i);
    };
 </script>
 
