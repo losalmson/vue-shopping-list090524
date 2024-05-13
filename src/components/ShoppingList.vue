@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import ItemPresentation from './ItemPresentation.vue';
 import { Item } from '../models/Item';
-import AddItem from './AddItem';
+import ItemPresentation from './ItemPresentation.vue';
+import AddItem from './AddItem.vue';
 
-
-const items = ref<Item[]>([]);
+const items = ref<Item[]>([new Item ("Test")]);
 
 const addItem = (text: string) => {
     items.value.push(new Item(text));
@@ -25,14 +24,16 @@ const handleRemove = (i: number) => {
         <input type="text" v-model.trim="newItem" placeholder="add grail 2 list"/>
         <button>Add Item</button>
     </form> -->
-    <AddItem />
+    <AddItem @add="addItem"/>
     <ul>
         <!-- item i (item,i) rep. en film  -->
         <ItemPresentation 
         v-for="(item, i) in items"  
         :key="item.id" 
         :item="item" 
-        :i="i" @toggle="handleToggle" @remove="handleRemove"/>
+        :i="i" 
+        @toggle="handleToggle" 
+        @remove="handleRemove"/>
     </ul>
     <p v-if="!items.length">Nothing to see here boo ...</p>
 </template>
